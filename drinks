@@ -1,0 +1,158 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp11
+{
+    struct drinks
+    {
+        public string drinkName;
+        public double drinkCost;
+        public int no_Of_Drinks_In_Machine;
+    }
+    public partial class Drinks : Form
+    {
+        double total = 0.00;
+        drinks[] Drink = new drinks[5];
+
+        public Drinks()
+        {
+            InitializeComponent();
+        }
+
+        private void Drinks_Load(object sender, EventArgs e)
+        {
+            Drink[0].drinkName = "cola";
+            Drink[0].drinkCost = 1.00;
+            Drink[0].no_Of_Drinks_In_Machine = 20;
+            Drink[1].drinkName = "Root Beer";
+            Drink[1].drinkCost = 1.00;
+            Drink[1].no_Of_Drinks_In_Machine = 20;
+
+            Drink[2].drinkName = "Lemon Lime";
+            Drink[2].drinkCost = 1.00;
+            Drink[2].no_Of_Drinks_In_Machine = 20;
+
+            Drink[3].drinkName = "Grape Soda";
+            Drink[3].drinkCost = 1.50;
+            Drink[3].no_Of_Drinks_In_Machine = 20;
+
+            Drink[4].drinkName = "Root Beer";
+            Drink[4].drinkCost = 1.00;
+            Drink[4].no_Of_Drinks_In_Machine = 20;
+
+            colapricelabel.Text =
+                Drink[0].drinkCost.
+                ToString("c");
+            rootpricelabel.Text = Drink[1].drinkCost.ToString("c");
+
+            lemonpricelabel.Text=Drink[2].drinkCost.ToString("c");
+
+            creampricelabel.Text=Drink[4].drinkCost.ToString("c");
+
+            colatextBox2.Text = 20.ToString();
+            roottextBox3.Text = 20.ToString();
+            lemontextBox4.Text = 20.ToString();
+            grapetextBox5.Text = 20.ToString();
+            creamtextBox1.Text = 20.ToString();
+            totaltextBox6.Text = 0.00.ToString("c");
+
+        }
+
+        private void colapictureBox1_Click(object sender, EventArgs e)
+        {
+            if (Drink[0].no_Of_Drinks_In_Machine < 1)
+            {
+                MessageBox.Show("Cola Drinks" + "are sold out...");
+
+            }
+            else
+            {
+                total += Drink[0].drinkCost;
+                Drink[0].no_Of_Drinks_In_Machine = Drink[0].no_Of_Drinks_In_Machine - 1;
+                colatextBox2.Text = Drink[0].no_Of_Drinks_In_Machine.ToString();
+
+                totaltextBox6.Text = total.ToString("c");
+            }
+        }
+
+        private void rootpictureBox2_Click(object sender, EventArgs e)
+        {
+            if (Drink[1].no_Of_Drinks_In_Machine < 1)
+            {
+                MessageBox.Show("Root Beer" + "Drinks are sold out...");
+
+            }
+            else
+            {
+                total += Drink[1].drinkCost;
+                Drink[1].no_Of_Drinks_In_Machine = Drink[1].no_Of_Drinks_In_Machine - 1;
+                roottextBox3.Text = Drink[1].no_Of_Drinks_In_Machine.ToString();
+                totaltextBox6.Text = total.ToString("c");
+            }
+        }
+
+        private void lemonpictureBox3_Click(object sender, EventArgs e)
+        {
+            if (Drink[2].no_Of_Drinks_In_Machine < 1)
+            {
+                MessageBox.Show("Lemon Lime" + "Drinks are sold out...");
+
+            }
+            else
+            {
+                total += Drink[2].drinkCost;
+                Drink[2].no_Of_Drinks_In_Machine = Drink[2].no_Of_Drinks_In_Machine - 1;
+                lemontextBox4.Text = Drink[2].no_Of_Drinks_In_Machine.ToString();
+                totaltextBox6.Text = total.ToString("c");
+            }
+        }
+
+        private void grapepicturebox_Click(object sender, EventArgs e)
+        {
+            if (Drink[3].no_Of_Drinks_In_Machine < 1)
+            {
+                MessageBox.Show("Grape Soda" + "Drinks are sold out...");
+
+            }
+            else
+            {
+                total += Drink[3].drinkCost;
+                Drink[3].no_Of_Drinks_In_Machine = Drink[3].no_Of_Drinks_In_Machine - 1;
+               grapetextBox5.Text = Drink[3].no_Of_Drinks_In_Machine.ToString();
+                totaltextBox6.Text = total.ToString("c");
+            }
+        }
+
+        private void creampicturebox_Click(object sender, EventArgs e)
+        {
+            if (Drink[4].no_Of_Drinks_In_Machine < 1)
+            {
+                MessageBox.Show("Cream Soda" + "Drinks are sold out...");
+
+            }
+            else
+            {
+                total += Drink[4].drinkCost;
+                Drink[4].no_Of_Drinks_In_Machine = Drink[4].no_Of_Drinks_In_Machine - 1;
+                creamtextBox1.Text = Drink[4].no_Of_Drinks_In_Machine.ToString();
+                totaltextBox6.Text = total.ToString("c");
+            }
+        }
+
+        private void exitbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+    }
+    
+    
+
+
